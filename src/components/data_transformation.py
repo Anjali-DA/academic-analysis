@@ -22,7 +22,7 @@ class DataTransformation:
     def __init__(self):
         self.data_transformation_config=DataTransformationConfig()
 
-    def get_data_transformer_object(self):
+    def get_data_transformer_object(self): #for pickel file for transforming it categorical to numerical features
         '''
         This function si responsible for data trnasformation
         
@@ -36,10 +36,11 @@ class DataTransformation:
                 "lunch",
                 "test_preparation_course",
             ]
+            #creating a pipeline
 
-            num_pipeline= Pipeline(
+            num_pipeline= Pipeline( 
                 steps=[
-                ("imputer",SimpleImputer(strategy="median")),
+                ("imputer",SimpleImputer(strategy="median")), #1. handling the missing values
                 ("scaler",StandardScaler())
 
                 ]
